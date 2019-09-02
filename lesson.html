@@ -1,0 +1,2091 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+<style type="text/css">
+
+/* wx69e305e15241246b */
+
+/* .demo{
+	width: 100%;
+	height: 100px;
+	background: red;
+	float: left;
+	overflow: auto;
+	position: absolute;
+}
+.nav{
+	width: 200px;
+	height: 100px;
+	background: green;
+	float: right;
+} 
+ */
+
+</style>
+</head>
+<body>
+
+<!-- <input type="text" name="" value="请输入用户名" maxlength="10" id="demo" style="color: #999" onfocus="if(this.value =='请输入用户名'){this.value='';this.style.color = '#424241'}" onblur="if(this.value==''){this.value='请输入用户名';this.style.color='#999'}">
+ -->
+ <script src = './jquery.js'></script>
+<script type="text/javascript">
+
+/*Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = function(_className){
+	var onLab = document.getElementsByTagName('*');
+	var DomArray = [];
+	function ArrClass(strClass){
+		var reg = /\s+/g;
+		var newClass = strClass.replace(reg,' ');
+		return newClass;
+	}
+	for(var i = 0;i<onLab.length;i++){
+		var listClass = ArrClass(onLab[i].className).trim();
+		var classArray = listClass.split(' ');
+		for(var j = 0;j<classArray.length;j++){
+			if(classArray[j]==_className){
+				DomArray.push(onLab[i]);
+				break;
+			}
+		}
+	}
+	return DomArray;
+}
+
+console.log(document.getElementsByClassName('demo'));
+*/
+
+
+/* 1. var num1 = +prompt('请输入第一个数：');
+  var num2 = +prompt('请输入第一个数：');
+   var num3 = +prompt('请输入第一个数：');
+   if(num1 < num2 && num1 < num3){
+   	if(num2 < num3){
+   		alert( num1 +","+num2+","+num3); 
+   	} else{
+   		alert( num1 +","+num3+","+num2);
+   	}
+   } else if(num2 < num1 && num2 < num3){
+   	if (num1 <num3) {
+   		alert( num2 +","+num1+","+num3);
+   	} else{
+   			alert( num2 +","+num3+","+num1);
+   	}
+
+   }else{
+   	if (num1 <num2) {
+   		alert( num3 +","+num1+","+num2);
+   	}else{
+   		alert( num3 +","+num2+","+num1);
+   	}
+
+   }
+*/
+/* 2.  var foo = '123';
+ function print(){
+ 	var foo = '456';
+ 	this.foo = "789";
+ 	console.log(foo);
+ }
+print();* 456./
+*/
+
+/*  3.var foo = 123;
+ function print(){
+ 	this.foo = 234;
+ 	console.log(foo);
+ }
+  new print();*123./
+*/
+
+/* 4. var a = 5;
+ function test(){
+ 	a = 0;
+ 	alert(a);
+ 	alert(this.a);
+ 	var a;
+ 	alert(a);
+
+ }
+ test();*0,5,0/
+/* new test();*0,undefined,0/
+
+
+
+function demo(){
+	var demo_a = 1;
+	function test (){
+		var demo_a = 2;
+		console.log(demo_a); //打印2
+	}
+	test();
+}
+demo();
+
+function a(){
+	y = function(){
+		x = 2;
+	};
+	return function(){
+		var x = 3;
+		y();
+		console.log(this.x); //打印2
+	}.apply(this.arguments); 
+}
+a();
+
+ 
+function demo(x){
+	this.x = x; 
+}
+demo(5);
+console.log(x);  // 5
+function test(){
+	this.x = 1;
+	alert(this.x);// 1
+}
+test();
+
+var bar = 1;
+function foo(bar){
+	bar =2;
+	alert(bar); // 2
+}
+foo(bar)
+alert(bar); //1
+
+
+/* 5. var arr = [1,3,4,5];
+ arr.splice(1,0,2);
+
+
+/* var arr = [1,9,8,5,3];
+ arr.sort(function(a,b){
+        if(a>b){
+        	return 1;
+        }else{
+        	return -1;
+        }
+        //return a-b;简写版；
+ });  给数组排序。
+
+
+
+/* 6. var arr = [1,2,3,4,5,6];
+arr.sort(function(){
+	return Math.random()-0.5;
+});//给一个有序数组，乱序
+
+/* 7. var arr = [1,2,3,4];
+ var arr1 = [5,6,7];
+ arr.concat(arr1);*/
+
+
+ /* 8. var obj = {
+ 	"1" : "a",
+ 	"2" : "c",
+ 	"3" : "d",
+ 	"length" : 3,
+ 	"push" : Array.prototype.push
+ }
+ obj.push('b');
+ obj.push('g');*/
+/* push内部原理
+ Array.prototype.push = function(target){
+ 	this[this.length] = target;
+ 	this.length ++;
+ }关键点在length上*/
+
+
+ /* 9. 定义一组函数，输入数字，逆转并输出汉字形式。*/
+/*function reverse (){
+	var num = window.prompt('input');
+	var str = "";
+	for( var i = num.length - 1; i >= 0; i --){
+		str += transfer(num[i]);
+	} 
+	document.write(str);
+}
+function transfer(target){
+	switch(target){
+		case "1":return "壹";
+		case "2":return "贰";
+		case "3":return "叁";
+
+	}
+}*/
+
+
+  /* 10 . 求str里的字节长度
+var str = "abcasjkldajskhfk;ashdjkjasds";
+function styLength(str){
+	var count = 0;
+	for(var i = 0; i < str.length; i++){
+		if(str.charCodeAt(i) > 255){
+			count += 2;
+		}else{
+			count ++;
+		} 
+	}return count;
+}*/
+
+
+
+/*11.
+ Person.prototype.name = 'sunny';
+ function Person(){
+
+ }Person.prototype = {      覆盖了上面的prototype的值sunny，所有 person.name的值是'cherry';
+ 	name : 'cherry'     
+ }
+var person = new Person();
+*/
+
+
+/*
+ 12. 随机0-100之间的数字  Math.floor的意思是取整数，里面的i<10意思是显示10个数字*/
+/*for( var i = 0; i < 10; i++){
+	var num = Math.floor( Math.random()*100);
+	console.log(num);
+}
+*/
+
+
+/*13. 重写tostring的方法
+Person.prototype = {toString:function(){
+	return 'hehe';
+}
+}
+function Person(){
+
+}
+var person = new Person();
+
+没加Person.prototype里面的tostring之前
+是在Obejct.prototype里找tostring所以person的tostring值为(object,object)
+在person.prototype里面加了tostring:function方法后person.tostring的值为'呵呵'。
+
+*/
+
+
+/*  14. 实现一个继承*/
+  /*function inherit(a,b){
+  	function F(){};
+  		F.prototype = b.prototype;
+  		a.prototype = new F();
+  		a.prototype.constuctor = a; 这一行是表示让son.constuctor=function Son(){};
+  		a.prototype.uber = b.prototype; 没有这一行的话son.constuctor=function Father(){};  
+  }
+  	Father.prototype.lastName = 'deng';
+  	function Father(){
+
+  	}
+  	function Son(){
+
+  	}
+    inherit(Son,Father);
+    var son = new Son();
+    var father = new Father();*/
+
+
+
+/*15. 数组去重*/
+/*var arr = [1,1,1,1,2,2,2,3,3,3];
+Array.prototype.unique = function (){
+	var temp = {},
+	     arr = [],
+	     len = this.length;
+	     for(var i = 0; i < len; i++){
+	     	if(! temp[this[i]]){
+	     		temp[this[i]] = 'abc';
+	     		arr.push(this[i]);
+	     	}
+	     }
+	     return arr;
+} */
+
+ /*最后arr.unique()返回的值为[1,2,3]; 
+重点是temp[this[i]]里面的i为数组的第几位，比如temp[this[0]],arr的第0位是1，先要创建一个空对象和一个空数组
+len = this.length;意思是用一个len来接收this.length可以简写for循环里的i < this.length，直接i < len;
+还看不懂记得笔记里面有详情。*/
+
+
+
+
+/*16. 私有化变量（里面有闭包，一个函数里面包含一个函数必有闭包）
+  function Person(name,age,sex){
+         var a = 0;
+         this.name = name;
+         this.age = age;
+         this.sex = sex;
+         function sss(){
+         	a ++;
+         	document.write(a);
+         }
+         this.say = sss;
+  }
+  var operson = new Person();
+  operson.say();              第一次调用Say函数最后一句this.say = sss,执行函数a = 0, 执行sss的(a++),所以第一次返回值为1。
+  operson.say();              第二次调用say，它会基于上面的operson.say的值是去执行，这时是a = 1,执行sss的(a++),所以第二次返回值为2。
+  var operson1 = new Person();这里定义了新的operson1，它会重新去执行Person,重新执行一遍函数，所以operson1.say返回值是1。
+  operson1.say();*/
+
+
+
+/*17. 闭包模式块级作用域
+
+var test = function(){
+          var arr = [];
+          for(var i = 0;i < 3; i++){
+          	arr[i] = function(){
+          		return i*i;
+          	}
+          }
+          return arr;
+}
+var a = test();      执行test()的结果是一个数组，arr[i]里面每一个元素都是function，在实际调用的时候，
+                      i的值已经的3了所以结果都是9. 
+a[1]();   
+a[2]();*/
+
+
+
+
+
+
+/*18 . 深层克隆
+
+1. 遍历对象 for(var prop in obj)
+2. 判断是不是原始值 typeof() object
+3. 判断是数组还是对象 Object.prototype.toString.call()
+4. 建立相应的新的数组或对象
+5. 递归
+
+
+var obj = {
+	name:'abc',
+	age: '123',
+	card:['acd','acb'],
+	wife:{
+		name:'lyl',
+		son:{
+			name:'aaa'
+		}
+	}
+
+}
+
+var obj1 = {
+
+}
+
+function demo(a,b){
+     var b = b || {},
+     str = Object.prototype.toString,//简写 引用到str里。
+     arr = "[object Array]";
+     for(var prop in a){
+     	if(a.hasOwnProperty(prop)){                 // 不克隆原型链上的属性 hasOwnProperty。
+     		if(a[prop] !== 'null' && typeof(a[prop]) == 'object'){        // 判断是不是原始值，这行等于了‘object’ 代表是引用值。
+     			if(str.call(a[prop]) == arr){       //判断是数组还是对象，这行是=arr 在上面说明了arr = [object,Array]所以是建立一个数组，否者esle，b的[prop]会等于对象。
+     				b[prop] = [];
+     			}
+     			else{
+     				b[prop] == {};
+     			}
+     			demo(a[prop],b[prop]);
+     		}
+     		else{
+     			b[prop] = a[prop];//这是不等于 是原始值。
+     		}
+     	}
+     }
+     return b;
+}*/     //调用方法是 demo(obj,obj1),然后obj1就完全克隆了obj里的东西且obj改了自己里面的值，obj1也不会改动。
+
+
+
+
+/*Dom操作
+ 
+1. 小方块移动*/
+
+/*var  div = document.createElement('div');    这一行是创建一个Div 
+document.body.appendChild(div);           在body放入一个div标签
+div.style.width = '200px';
+div.style.height = '200px';
+div.style.backgroundColor = 'red';
+div.style.position = 'absolute';
+div.style.top = '0';
+div.style.left = '0';
+var speed = 1;
+ var time = setInterval(function(){          setInterval 定时器
+	speed += speed%12;
+	div.style.left = parseInt(div.style.left)+ speed +'px';
+
+div.style.top = parseInt(div.style.left)+ speed +'px';
+if(parseInt(div.style.top)>600 && parseInt(div.style.left)>600){
+	clearInterval(time); // clearInterval 清除定时器，也可以说让移动停止下来。
+}
+},20);
+*/
+
+/*新的方法写小方块移动，speed是让小方块加速运动*/
+/*function getStyle(elem,prop){
+	if(window.getComputedStyle){
+		return window.getComputedStyle(elem,null)[prop];
+	}else{
+		return elem.currentStyle[prop];
+	}
+}
+var speed = 1;
+var div = document.getElementsByTagName('div')[0];
+  var time = setInterval(function(){
+  	speed += speed % 12;
+       div.style.left = parseInt(getStyle(div,'left')) + speed + 'px';
+       if(parseInt(getStyle(div,'left'))>1190){
+       	clearInterval(time);
+       }
+   },100);*/
+
+
+/*2. 键盘操作小方块*/
+
+/*var  div = document.createElement('div');
+document.body.appendChild(div);
+div.style.width = '200px';
+div.style.height = '200px';
+div.style.backgroundColor = 'red';
+div.style.position = 'absolute';
+div.style.top = '0';
+div.style.left = '0';
+document.onkeydown = function(e){
+         switch(e.which){
+         	case 38:
+         	div.style.top = parseInt(div.style.top)- 15 +'px';
+         	break;
+         	case 40:
+         	div.style.top = parseInt(div.style.top)+ 15 +'px';
+         	break;
+         	case 37:
+         	div,style.left = parseInt(div.style.left)- 15 +'px';
+         	break;
+         	case 39:
+         	div.style.left = parseInt(div.style.left)+ 15 + 'px';
+         }
+}
+*/
+
+/* 3.封装函数insertAfter，功能类似insertBefore。 
+
+Element.prototype.insertAfter = function(a,b){
+	var beforeNode = b.nextElementSibling;
+	if(beforeNode == null){
+		this.appendChild(a);
+	}else{
+		this.insertBefore(a,beforeNode);
+	}
+}*/
+
+
+
+/*4. 封装函数打印出现在是何年何月何日何时，几分几秒
+
+function getTime()
+{
+ var d = new Date();
+ var year = d.getFullYear(); //年
+ var month = d.getMonth() + 1; //月 
+ var day = d.getDate(); //日
+ var h = d.getHours(); //时
+ var m = d.getMinutes(); //分
+ var s = d.getSeconds(); //秒
+ alert("现在时间是: "+year+"年"+month+"月"+day+"日 "+h+"时"+m+"分"+s+"秒");
+} 
+getTime();
+*/
+
+/*5. 计时器。到三分钟停止
+
+var Fz = document.getElementsByTagName('input')[0];
+var Ss = document.getElementsByTagName('input')[1];
+首先在div中创建2个input，然后在script中获取。
+
+var a = 0,   //声明2个变量为了方便用a,b代替，a代表分钟，b是秒。
+    b = 0;
+    var time = setInterval(function(){
+    	b ++;
+          if(b == 60){
+          	b = 0;
+          	a ++;
+          }
+          Fz.value = a;
+          Ss.value = b;
+          if(a == 3){
+          	clearInterval(time);
+          }
+    },30);
+*/
+/*6. 封装兼容性方法，求滚动轮滚动距离
+
+function getScrollOffset(){
+	if(window.pageXOffset){
+		return{
+			x:window.pageXOffset,
+			y:window.pageYOffset
+		}
+	}else{
+		return{
+			x:document.body.scrollLeft + document.documentElement.scrollLeft,
+			y:document.body.scrollTop + document.documentElement.scrollTop
+		}
+	}
+}*/
+
+/*7. 封装兼容性方法，返回浏览器视口尺寸
+
+function demo(){
+	if(window.innerWidth){
+		return{
+			w:window.innerWidth,
+			h:window.innerHeight 
+		}
+	}else{
+		if(document.compatMode == 'BackCompat'){
+			return{
+				w:document.body.clientWidth,
+                h:document.body.clientHeight
+			}
+		}else{
+			return{
+				w:document.documentElement.clientWidth,
+				h:document.documentElement.clientHeight
+			}
+		}
+	}
+}
+*/
+
+/*8. 小说自动阅读功能
+               
+var count = 0;
+var key  = true;
+div.onclick = function(){
+	if(key){
+		count = setInterval(function(){
+             window.scrollBy(0,10);
+		},100);
+		key = false;
+	}
+}
+div1.onclick = function(){
+	key = true;
+   clearInterval(count);  
+}*/
+
+
+/*9. 封装兼容性方法 getStyle(elem,prop)
+
+function getStyle (elem,prop){
+	if(window.getComputedStyle){
+		return window.getComputedStyle(elem,null)[prop];
+	}else{
+		return elem.currentStyle[prop];
+	}
+}
+*/
+
+
+/*9. 用原生js，addEventListener,给每个li元素绑定一个click事件并且输出他们的顺序
+
+var li = document.getElementsByTagName('li');  //这里如果选择一组li标签的话不要在后面加[0]; 
+for(var i = 0; i<li.length;i++){
+	(function(i){
+		li[i].addEventListener('click',function(){
+			console.log(i);
+		},false);
+	}(i))
+}  
+
+
+/*10. 封装兼容性绑定的addEvent(elem,type,handle)
+
+function addEvent (elem,type,handle){
+	if(elem.addEventListener){
+		elem.addEventListener(type,handle,false);
+	}else if(elem.attachEvent){
+		elem.attachEvent('on'+ type,function(){
+			handle.call(elem);
+		})
+	}else{
+		elem['on' + type] = handle;
+	}
+}*/                                                                                        
+
+/*11. 封装取消冒泡的函数 stopBubble(event).
+
+function stopBubble(event){
+	if(event.stopPropagation){
+		event.stopPropagation();
+	}else{
+		event.cancelBubble = true;
+	}
+}*/
+
+/*12. 封装阻止默认事件的函数cancelHandler(event).
+
+function cancelHandelr (event){
+	if(event.preventDefault){
+		event.preventDefault();
+	}else{
+		event.returnValue = false;
+	}
+}*/
+
+/* 封装函数，返回元素e的第n层祖先元素节点
+function Parent(elem,n){
+	while(elem&&n){
+        elem = elem.parentElement;
+        n--; 
+	}
+	return elem;
+}
+
+封装myChild功能，解决部分浏览器兼容性问题
+Element.prototype.myChildren = function(){
+	var child = this.childNodes;
+	var len = child.length;
+	var arr = [];
+	for(var i =0;i<len;i++){    
+		if(child[i].nodeType==1){
+			arr.push(child[i]);
+		}
+	}
+	return arr;
+}
+
+自己封装hasChildren()方法，不可用children属性
+Element.prototype.hasChildren = function(){
+	var child = this.childNodes;
+	var len = child.length;
+	for(var i =0;i<len;i++){
+		if(child[i].nodeType==1){
+			return true;
+		}
+	}
+	return false;
+}
+
+
+封装函数，返回元素e的第n个兄弟元素节点，n为正，返回后面的兄弟元素节点，n为负，返回前面的，n为0，返回自己
+function demo(e,n){
+	while(e&&n){
+		if(n>0){
+			if(e.nextElementSibling){
+				e =e.nextElementSibling
+			}else{
+				for(e =e.nextElementSibling;e&&e.nodeType !=1;e=e.nextElementSibling);
+			}
+		n--;
+		}else{
+			if(e.previousElementSibling){
+				e =e.previousElementSibling;
+			}else{
+				for(e =e.previousElementSibling;e&&e.nodeType !=1;e =e.previousElementSibling);
+			}
+		n++;
+		}
+	}
+	return e;
+}
+
+
+
+*/
+/*13. 给多个li绑定函数，要求点击那个li，就打印出那个li的内容*/
+ /*  var ul = document.getElementsByTagName('ul')[0];
+   ul.onclick = function(e){
+       var event = e || window.event;
+       var target = event.target || event.srcElement;
+       console.log(target.innerText);
+   }
+*/
+
+//14. 鼠标拖拽功能   
+
+/*var div = document.getElementsByTagName('div')[0];
+div.onmousedown = function(e){
+	var event = event ||e;
+	var disX = event.clientX - div.offsetLeft;
+	var disY = event.clientY - div.offsetTop;
+	document.onmousemove = function(e){
+		var event = event ||e;
+		var onLeft= event.clientX - disX;
+		var onTop = event.clientY - disY;
+		div.style.left =onLeft +'px';
+		div.style.top = onTop +'px'; 
+	}
+	document.onmouseup = function(){
+		document.onmousemove = null;
+	}
+}*/
+
+/*var oDiv = document.getElementsByTagName('div')[0];
+var Width = document.documentElement.clientWidth || document.body.clientWidth;
+var Height = document.documentElement.clientHeight || document.body.clientHeight;
+var onLet = oDiv.offsetWidth;
+var onTo = oDiv.offsetHeight;
+oDiv.onmousedown = function(e){
+	var event = e||event;
+	var disX = event.clientX - oDiv.offsetLeft;
+	var disY = event.clientY - oDiv.offsetTop;
+	document.onmousemove = function(e){
+		var event = e||event;
+		var onLeft = event.clientX - disX;
+		var onTop = event.clientY - disY;
+       if(onLeft<0){
+       	onLeft = 0;
+       }else if(onLeft>(Width - onLet)){
+       	 onLeft = Width - onLet;
+       }if(onTop<0){
+       	onTop = 0;
+       }else if(onTop>(Height - onTo)){
+       	onTop = Height - onTo;
+       }
+		oDiv.style.left = onLeft + 'px';
+		oDiv.style.top = onTop + 'px';
+	}
+	document.onmouseup = function(){
+		document.onmousemove = null;
+	}
+}
+*/
+
+
+
+/*15. W3C 标准异步JS方法
+
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'lesson.js';
+if(script.readyState){
+	script.onreadystatechange = function(){
+	if(script.readyState=='complete'|| script.readyState=='loaded'){
+	test();
+	}
+   }
+}else{
+	script.onload = function(){
+	test();
+    }
+}
+document.head.appendChild(script);*/
+
+/*16. 封装异步JS方法
+
+function loadscript(url,callback){
+     var script = document.createElement('script');
+     script.type = 'text/javascript';
+     if(script.readystate){
+     	script.onreadystatechange = function(){
+     		if(script.readyState =='complete'||script.readyState =='loaded'){
+     			tools[callback]();
+     		}
+     	} 
+     }else{
+     	script.onload = function(){
+     		tools[callback]();
+     	}
+     }
+     script.src = url;
+     document.head.appendChild(script);
+}
+
+loadscript('lesson.js','test');
+*/
+
+
+
+
+/*正则表达式*/
+
+/*1. 写一个正则表达式，检验字符串首尾是否含有数字*/
+/*var reg = /^\d[\s\S]*\d$/g;   
+var str = '123abc123';*/
+
+
+/*2. 有正则表达式去‘xxxx’类型的
+var str = 'aaaa';
+var reg = /(\w)\1\1\1/g; 
+*/
+
+/*3.求一个AABB类型的
+var str = 'aabb';
+var reg = /(\w)\1(\w)\2/g;
+*/
+
+/*4.用replace的方法将aabb转换成bbaa
+var str = 'aabb';
+var reg = /(\w)\1(\w)\2/g;
+console.log(str.replace(reg,function($,$1,$2){
+     return $2+$2+$1+$1;
+}))*/
+
+/*5.将the-fist-name变成小驼峰式
+
+var str = 'the-fist-name';
+var reg = /-(\w)/g;
+console.log(str.replace(reg,function($,$1){
+  return $1.toUpperCase();
+}))*/
+
+/*6.把重复的aaabbbccc变成abc
+var str= 'aaabbbccc';
+var reg = /(\w)\1g;
+console.log(str.replace(reg,'$1'));*/
+
+/*7.百度考题（正则表达式）在每三位后面加一个'.'
+var str = '1000000000';
+var reg = /(?=(\B)(\d{3})+$)/g;
+console.log(str.replace(reg,'.'));*/
+
+/* 8.将'abab'转换为'baba'*/
+ /*var str ='abab';
+ var reg = /(\w)(\w)\1\2/g;
+console.log(str.replace(reg,function($,$1,$2){
+	return $2+$1+$2+$1;
+}))*/
+
+
+//var str = 'aaabbbcccdddeefggaa';
+//var reg = /(\w)\1*/g;
+ 
+/*var str = 'aaaabbbb';
+var reg = /(\w)\1*(\w)\2g;
+console.log(str.replace(reg,function($,$1,$2){
+   return $2+$2+$2+$2+$1+$1+$1+$1;
+}))
+*/
+
+
+
+
+
+/*JS收官
+*/
+/*1.图片懒加载*/
+ /*<div id="nav" style="opacity: 0.3;"></div> 
+ function demo(id){
+  var nav = document.getElementById(id);
+  if(nav.offsetTop<=window.pageYOffset+window.innerHeight){
+    var time = setInterval(function(){
+           if(nav.style.opacity=='1'){
+            clearInterval(time);
+           }else{
+            nav.style.opacity = parseFloat(nav.style.opacity)+0.01;
+           } 
+    },60);
+  }
+ }
+window.onscroll = function(){
+  demo('nav');  
+}*/
+
+
+// 2.图片预加载
+
+/* var oImg = document.createElement('img');
+ oImg.onload = function(){
+  var demo = document.getElementById('demo');
+  demo.appendChild(oImg);
+ }
+ oImg.src = "./img/1.jpg";*/
+
+
+//3. 封装ClassName
+/*Element.prototype.getElementsByClassName = Document.prototype.getElementsByClassName = document.getElementsByClassName ||function(className){
+               var onLab = document.getElementsTagName('*');
+               var DomArray = [];
+               function listClass(strClass){
+               var reg = /\s+/g;
+               var newClass = strClass.replace(reg,'');
+                  return newClass;
+                   }
+               for(var i = 0;i<onLab.length;i++){
+               var trimSpace = listClass(onLab[i].className).trim();
+               var classArray = trimSpace.split('');
+               for(var j = 0;j<classArray.length;j++){
+               if(classArray[j]==className){
+                DomArray.push(onLab[i]);
+                break;
+             }
+          }
+     }
+         return DomArray; 
+  }
+*/
+/*var name = '222';
+var a = {
+	name:'111',
+	say:function(){
+		console.log(this.name);
+	}
+}
+var fun = a.say;
+fun();  //222
+a.say(); //111
+var b = {
+	name:'333',
+	say:function(fun){
+		fun();
+	}
+}
+b.say(a.say); //222
+b.say = a.say;
+b.say(); //333
+*/
+
+
+
+/*function testArg(first,second){
+	'use strict'
+	console.log(first===arguments[0]);//true
+	console.log(second===arguments[1]);//true
+	first = 'c';
+	second = 'b';
+	console.log(first===arguments[0]);//false
+	console.log(second===arguments[1]);//true
+	console.log(arguments);// 0:"a",1:"b"
+}
+testArg('a','b');
+*/
+
+
+/*　1.对象字面量。
+ var clock={
+  hour:12,
+  minute:10,
+  second:10,
+  showTime:function(){
+   alert(this.hour+":"+this.minute+":"+this.second);
+  }
+ }
+调用方法clock.showTime();
+*/
+
+
+// 封装push方法
+// var arr = [1,2,3];
+// Array.prototype.myPush = function(){
+//   for(var i =0;i<arguments.length;i++){
+//     this[this.length]=arguments[i];
+//   }
+//   return this.length;
+// }
+
+/*push-pop
+unshift-shift*/
+
+
+/*封装typeof方法
+function myType(target){
+	var demo = {
+		"[object Array]":'array',
+		'[object Obiect]':'object',
+		'[object Number]':'number-object',
+		'[object Boolean]':'boolean-object',
+		'[object String]':'string-object'
+	}
+	if(target==null){
+		return 'null';
+	}
+	if(typeof(target)=='object'){
+		var str = Object.prototype.toString.call(target);
+		return demo[str];
+	}else{
+		return typeof(target);
+	}
+}*/
+
+//5的阶乘
+/*function factorialize(num){
+	if(num === 0){
+		return 1;
+	}
+	return num*factorialize(num -1);
+}
+console.log(factorialize(5));*/
+
+
+
+/*function findLongest(str){
+	return str.split(" ").reduce((prev,curv) => Math.max(prev,curv.length),0);
+}
+console.log(findLongest('lisf dsdasda sadasdas asdasdas'));*/
+
+
+   
+/*  function largest(arr){
+  	return arr.map(item =>item.reduce((prev,curv) => Math.max(prev,curv)));
+  }
+console.log(largest([
+	[4,1,3,5],
+	[435,212,3123,45],
+	[9,34,45,67]
+	]));
+*/
+
+
+/*求字节长度切按顺序从小到大排列
+function demo(str){
+  var num = str.length;
+  for(var i = 0;i<str.length;i++){
+     if(str.charCodeAt[i]>255){
+      num ++;
+     }
+  }
+  return num;
+}
+var arr = ['sads','sadsa','asdsa','df','ds','a'];
+arr.sort(function(a,b){
+  return demo(a) - demo(b)
+})
+
+*/
+
+/*Element.prototype.getElementsByClassName = Document.prototype.getElementsClassName = document.getElementsByClassName||function(className){
+	var onLab = document.getElementsByTagName('*');
+	var DomClass = [];
+	function getClass(strClass){
+		var reg = /\s+/g;
+		var newClass = strClass.replace(reg,'');
+	}
+	for(var i = 0;i<onLab.length;i++){
+       var listClass = getClass(onLab[i].className).trim();
+       var classArray = listClass.split('');
+       for(var j = 0;i<classArray.length;j++){
+             if(classArray[j]==className){
+               DOmClass.push(onLab[i]);
+               break;    
+	       }
+       }
+	}
+	return DomClass;
+}
+
+var bar = {a:'002'};
+function demo(){
+	bar.a = 'a';
+	Object.prototype.b = 'b';
+	return function inner(){
+		console.log(bar.a);
+		console.log(bar.b);
+	}
+}
+demo()();
+
+*/
+
+/*
+var b = 1;
+function demo(){
+	var b = 2;
+	function onLab(){
+		b ++;
+		var b = 3;
+		console.log(b)
+	}
+	onLab();
+}
+demo();
+
+*/
+
+/*var length = 10;
+function fn(){
+	console.log(this.length);//10  2
+}
+var obj = {
+	length:5,
+	method:function(fn){
+		fn();
+		arguments[0]();
+	}
+};
+obj.method(fn,1);
+*/
+
+// var str = 'aakkkccddbaa';
+// var reg = /(\w)\1*/g;
+// console.log(str.replace(reg,function($,$1){
+// 	return $1 + $.length;
+// })) 
+
+//forEach 遍历
+//filter 过滤 
+//map  映射
+//Every - some
+//reduce - reduceRight
+
+/*var prototype = [
+{name:'123',des:'ads',sex:'m',age:15},
+{name:'ccc',des:'ggg',sex:'s',age:20},
+{name:'aaa',des:'wss',sex:'f',age:25}
+];*/
+/*Array.prototype.myForEach = function(func){
+	var _arr = this,len = _arr.length,param2 = arguments[1]||window;
+	for(var i = 0;i<len;i++){
+		func.apply(param2,[_arr[i],i,_arr]);
+	}
+}
+prototype.myForEach(function(ele,index,self){
+  this[index].innerText = ele.name;
+},document.getElementsByTagName('li'));
+
+
+Array.prototype.myFilter = function(func){
+	var _arr = this,len = _arr.length,param2 = arguments[1]||window,newArr = [];
+	for(var i = 0;i<len;i++){
+		func.apply(param2,[_arr[i],i,_arr])?newArr.push(_arr[i]) : '';
+	}
+	return newArr;
+}
+
+var newArr = prototype.myFilter(function(ele,index,self){
+	console.log(ele,index,self);
+	return ele.sex =='s';
+})
+Array.prototype.myMap = function(func){
+	var _arr = this,len = _arr.length,param2 = arguments[1]||window,newArr = [];
+	for(var i = 0;i<len;i++){
+		newArr.push(func.apply(param2,[_arr[i],i,_arr]));
+	}
+	return newArr;
+}
+
+var onArr = prototype.myMap(function(ele,index,self){
+	console.log(ele,index,self);
+	ele.name+=10;
+
+	return ele;
+})
+
+Array.prototype.myEvery = function(func){
+	var _arr = this,len = _arr.length,param2 = arguments[1]||window,flag = true;
+	for(var i = 0;i<len;i++){
+		if(!func.apply(param2,[_arr[i],i,_arr])){
+			flag = false;
+			break;
+		}
+	}
+	return flag;
+}
+var flag = prototype.myEvery(function(ele,index,self){
+	return ele.age>10;
+})
+
+
+Array.prototype.myReduce = function(func,initialValue){
+	var _arr = this,len = _arr.length,param2 = arguments[2]||window;
+	for(var i = 0;i<len;i++){
+		initialValue = func.apply(param2,[initialValue,_arr[i],i,_arr])
+	}
+	return initialValue;
+}
+var initialValue = {name:'cst'};
+var lastValue = prototype.myReduce(function(prevValue,curValue,index,self){
+console.log(prevValue,curValue,index,self);
+prevValue.name+=1;
+return prevValue; 
+},initialValue,{dom:'dom'});*/
+
+
+
+/*
+ var cookieStr =  "BAIDUID=8A0177C94B4F5543FCEAF731D9FDE417:FG=1; PSTM=1552536958; delPer=0; BD_HOME=0; H_PS_PSSID=1460_21117_28557_28608_28584_26350_28518_28625_28606; BIDUPSID=2794734D39408189879C699B0B1C2DA0; BD_UPN=12314753";
+
+function parseCookie(str){
+	var curArr = str.split(';');    
+	var cookieObj = {};             
+	curArr.reduce(function(prevValue,curVlaue,index,self){
+		var curSor = curVlaue.split('=');  
+       cookieObj[curSor[0]] = curSor[1];
+         return prevValue;
+	},cookieObj);
+	return cookieObj;
+}
+var cookieObj = parseCookie(cookieStr);
+console.log(cookieObj);
+
+var cookieStr = 'https://www.baidu.com/s?ie=utf-8&f=8';
+function demo(str){
+var cookieObj = {};
+var curArr = cookieStr.split('://');        
+var ArrList = curArr[1].split('?');
+var ArrMath = ArrList[0].split('/');
+var ArrByText = ArrList[1].split('&');
+cookieObj.protocol = curArr[0];
+cookieObj.host = ArrMath[0];
+cookieObj.path = '/'+ArrMath[1];
+var seaObj = {};
+cookieObj.search = seaObj;
+for(var i = 0;i<ArrByText.length;i++){
+      var ArrConBy =ArrByText[i].split('=');
+      seaObj[ArrConBy[0]] = ArrConBy[1];
+   }
+return cookieObj;
+}
+
+var cookieObj = demo(cookieStr);
+console.log(cookieObj);*/
+
+//protocol:'https',host:'www.baidu.com',path:'/s',search:{ie:'utf-8',f:'8'}
+
+/*var arr = [{name:'cst',age:'18'},{name:'jc',age:'20'},{name:'dxm',age:'50'},{name:'dcg',age:'30'}];
+var newArr = arr.filter(function(ele,index,self){
+	console.log(ele,index,self);
+	return ele.name.indexOf('c') !=-1; 
+})
+var newLab = arr.map(function(ele,index,self){
+	
+	return ele.name+=ele.age;
+}) 
+*/
+
+/*var str ='123abc';
+var arr=str.split('').reverse().join('');  
+console.log(arr);*/
+//二分查找
+/*
+var arr = [1,3,4,5,7,8,9];
+function test(arr,key){
+	var low = 0,
+	   heih = arr.length -1;
+	   while(low<=heih){
+	   	var min = parseInt((low+heih)/2);
+	   	if(arr[min]==key){
+	   		return min;
+	   	}else if(key>arr[min]){
+	   		low = min+1;
+	   	}else if(key<arr[min]){
+	   		heih = min -1;
+	   	}
+	   }
+	   return -1;
+}
+console.log(test(arr,9));
+*/
+
+/*var arr = ['a','b','c','b','a'];
+var arr1 = ['a','b','c','c','b','a'];
+function test(arr){
+	if(arr = null){
+		return false;
+	}
+	if(arr instanceof Array){
+		var low = 0,
+		  heih = arr.length - 1;
+		  while(true){
+		  	if(low>=heih){
+		  		break;
+		  	}
+		  	if(arr[low]!=arr[heih]){
+		  		return false;
+		  	}
+		  	low ++;
+		  	heih --;
+		  }
+	}
+	return true;
+}
+
+console.log(test(arr));
+console.log(test(arr1));*/
+
+/*var arr = ['a', 'b', 'c', 'b', 'c', 'x', 'y', 'x', 'y', 'z'];
+        var arr2 = ['b', 'c'];
+  
+    function test(origin,sub){
+    	if(!origin||!sub||origin.length==0||sub.length==0){
+    		return -1;
+    	}
+    	for(var i = 0;i<=origin.length - sub.length;i++){
+    		for(var j = 0 ;j<sub.length;j++){
+    			if(sub[j]!=origin[i+j]){
+    				 break;
+    			} 
+    			if(j==sub.length -1){
+    				return i;
+    			}
+    		}
+    	}
+    	return -1;
+    }
+
+console.log(test(arr,arr2));
+
+var arr = [1,2,3,4,5,1,2,3,1,2,3,4];
+function test(arr){
+	if(!arr||arr.length==0){
+		return 0;
+	}
+	var max = 1;
+	var nowMax = 1;
+	for(var i = 0;i<arr.length;i++){
+		if(arr[i]-arr[i-1]>0){
+			nowMax++;
+	}else{ 
+		max = nowMax>max?nowMax:max;
+		nowMax = 1;
+	    }
+	}
+	max = nowMax>max?nowMax:max;
+	return max;
+
+}
+console.log(test(arr));*/
+
+/*var arr = '123abc';
+var str = arr.split('').reverse().join('');
+console.log(str);*/
+/*var arr = [1,2,3,4,5,6,7,8,9];
+function test(arr,key){
+	var low = 0,
+	heih = arr.length -1;
+	while(low<=heih){
+		var min = parseInt((low+heih)/2);
+	  if(arr[min]==key){
+	  	return min;
+	  }
+	  else if(key>arr[min]){
+	  	low = min +1;
+	  }
+	  else if(key<arr[min]){
+	  	heih = min-1;
+	  }
+	}
+	return -1;
+}
+console.log(test(arr,4));*/
+/*var arr = ['a','b','c','b','a'];
+var arr1 = ['a','b','c','c','b','a'];
+function test(arr){
+	if(arr==null){
+		return false;
+	}
+	if(arr instanceof Array){
+		var low = 0,
+		heih = arr.length -1;
+		while(true){
+			if(low>=heih){
+				break;
+			}
+			if(arr[low]!=arr[heih]){
+				return false;
+			}
+		low ++;
+		heih --;
+		}
+
+
+	}
+	return true;
+}
+console.log(test(arr));
+console.log(test(arr1));*/
+
+/*var arr = [1,2,3,4,5,1,2,3,4,1,2,3];
+function test(arr){
+	if(!arr||arr.length==0){
+		return 0;
+	}
+	var max = 1;
+	var nowMax = 1;
+	for(var i = 0;i<arr.length;i++){
+		if(arr[i]-arr[i-1]>0){
+			nowMax++;
+		}else{
+			max=nowMax>max?nowMax:max;
+			nowMax= 1;
+		}
+	}
+	max = nowMax>max?nowMax:max;
+		return max;
+}
+console.log(test(arr));*/
+
+
+//var arr = [1,1,2,2,3,3,4,4,5,5,5];
+/*function unique1(arr){
+	var newArr = [];
+	var len = arr.length;
+    for(var i = 0;i<len;i++){
+   if(newArr.indexOf(arr[i])==-1){
+   	newArr.push(arr[i])
+   }
+    }
+   
+	return newArr;
+}
+console.log(unique1(arr));*/
+
+/*function unique2(arr){
+	var newArr = [];
+    var obj = {};
+    var len = arr.length;
+    for(var i = 0;i<len;i++){
+    	if(!obj[arr[i]]){
+    		obj[arr[i]] = 'abc';
+    		newArr.push(arr[i]);
+    	}
+    }
+	return newArr;
+}
+console.log(unique2(arr));
+*/
+
+
+/*var arr = [4,2,8,5,6,1,3];
+arr.sort(function(a,b){
+	if(a>b){
+		return a-b;
+	}
+})
+console.log(arr);*/
+
+
+
+/*var arr = [1,1,1,2,2,2,3,3,4,4,4];
+function demo(arr){
+	var newArr = [];
+	var obj = {};
+	var len = arr.length;
+	for(var i = 0;i<len;i++){
+		if(!obj[arr[i]]){
+			obj[arr[i]] = 'abc';
+			newArr.push(arr[i]);
+		}
+	}
+	return newArr;
+}
+console.log(demo(arr));
+
+
+
+var arr1 = [2,2,2,3,3,3,4,4,5,5]; 
+function demo1(arr1){
+	var newArr = [];
+	var len = arr1.length;
+	for(var i = 0;i<len;i++){
+		if(newArr.indexOf(arr1[i])==-1){
+			newArr.push(arr1[i]);
+		}
+	}
+	return newArr;
+}
+console.log(demo1(arr1));
+
+
+*/
+
+
+
+
+// ajax函数  用来与后端交互  （请求类型POST GET DELETE PUT HEAD, 请求地址， callback请求的回调函数，参数， 是否异步）
+// function ajax(method, url, callback, data, flag) {
+//     // xhr 用来存储请求与响应的信息
+//     var xhr = null;
+//     if(window.XMLHttpRequest) {
+//         xhr =  new XMLHttpRequest();
+//     }else {
+//         xhr = new ActiveXObject('Microsoft.XMLHttp');
+//     }
+//      // 监听数据请求状态   监听状态readyState的变化
+//     xhr.onreadystatechange = function() {
+//         // 1 2 3
+//         if(xhr.readyState == 4) {
+//             // 4xx   url  data 
+//             if(xhr.status == 200) {
+//                 callback(xhr.responseText);
+//             }else {
+//                 console.log('error');
+//             }
+//         }
+//     }
+
+//     method = method.toUpperCase();
+//     // get 请求 把数据拼接在地址身上
+//     if(method == 'GET') {
+//         // 建立连接
+//         xhr.open(method, url + '?' + data, flag);
+//         // 发出请求
+//         xhr.send();
+
+//         // post 请求需要把数据放在请求体里面  不拼接地址
+//     }else if(method == 'POST') {
+//         // 建立连接
+//         xhr.open(method, url, flag);
+//         // 前端告诉后端 我的数据是什么格式的   key=value&key1=value1
+//         xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+//         // 传递数据 发出请求i
+//         xhr.send(data);
+//     }
+// }
+
+
+// var meta = [1,23,2,1,3,1];
+
+// function demo(array,result){
+// 	var count = array.length;
+// for(var i = 0;i<count;i++){
+// 	var temp = array[i];
+// 	if(Array.isArray(temp)){
+// 	  demo(temp,result);
+// 	}else{
+// 		result.push(array[i]);
+// 	}
+//   }
+// }
+// var result = [];
+// demo(meta,result);
+// console.log('递归处理的结果:',result);
+
+
+
+
+// var color = 'green';
+//     var test4399 = {
+//         color:'bule',
+//         getColor:function(){
+//             var color = 'red';
+//             console.log(this.color);
+//         }
+//     }
+//     var getColor = test4399.getColor();
+//     getColor();
+//     test4399.getColor(); //打印bule this指向问题
+
+//二分查找 首先要数组的最大值和一个最小值 然后 最大加最小除以2找出数组的中间值
+//接着开始向你传的值开始排除 如果大于就higt = min - 1; 小于 low = min + 1;
+
+// var arr = [1,2,3,4,5,6,7,8,9];
+// function demo(arr ,key){
+// 	var low = 0;
+// 	var higt = arr.length;
+// 	while(low<=higt){
+// 	 var min = parseInt((low + higt)/2);
+// 	 if(arr[min] == key){
+// 		 return min;
+// 	 }else if(key > arr[min]){
+// 		  low = min+1;
+// 	 }else if(key< arr[min]){
+// 		 higt = min - 1;
+// 	 }
+// 	}
+// 	return -1;
+// }
+// console.log(demo(arr,4));
+
+
+//查找对称数组 和二分查找一样多了一些严谨判断 要找出循环突破口 就是low>=higt跳出循环
+//low不断加加，higt不断减减当他们相等时返回true，否则就返回false
+var arr1 = ['a','b','c','c','b','a'];
+  function test(arr){
+	  if(arr == null){
+		  return false;
+	  }
+	  if(arr instanceof Array){
+		  var low = 0;
+		  var higt = arr.length - 1;
+		  while(true){
+			  if(low>=higt){
+				  break;
+			  }
+			  if(arr[low] != arr[higt]){
+				  return false;
+			  }
+			  low++;
+			  higt--;
+		  }
+		  return true;
+	  }
+  }
+  console.log(test(arr1));
+
+
+
+
+
+  var arr = ['a', 'b', 'c', 'b', 'c', 'x', 'y', 'x', 'y', 'z'];
+		var arr2 = ['b', 'c'];
+		function demo(origin,sub){
+			if(!origin || !sub || origin.length == 0 || sub.length == 0){
+				return -1;
+			}
+			for(var i = 0; i<origin.length - sub.length + 1;i++){
+				for(var j = 0;j<sub.length;j++){
+					if(sub[j] != origin[i+j]){
+						break;
+					}
+					if(j == sub.length - 1){
+						return i; 
+					}
+				}
+			}
+			return -1;
+		}
+		console.log(demo(arr,arr2)); 
+ 
+		// var str = '11122223333333';
+		// var arr = str.split('');
+		// var newArr = [];
+		// var numArr = [];
+		// arr.forEach(function(element,index,array){
+		// 	var index1 = newArr.indexOf(element);
+		// 	if(index1 == -1){
+		// 		newArr.push(element); 
+		// 		numArr.push(1);
+		// 	}else{
+		// 		numArr[index1]++;
+		// 	}
+		// })
+		// function sortNumber(a,b){
+		// 	return b-a;
+		// }
+		// var numArr1 = [].concat(numArr);
+		// numArr1.sort(sortNumber);
+		// var maxNum = numArr1[0];
+		// var index = numArr.indexOf(maxNum);
+		// var maxStr = newArr[index];
+		// console.log('字符串"'+str+'",'+maxStr+'出现次数最多,次数为'+maxNum);
+	  var arr = 'ffffgggbbbddddd';
+	  var str = arr.split('');
+	  var newArr = [];
+	  var numArr = [];
+	  str.forEach(function(ele,index){
+	  	var index1 = newArr.indexOf(ele);
+	  	if(index1 == -1){
+	  		newArr.push(ele);
+	  		numArr.push(1);
+	  	}else{
+	  		numArr[index1]++;
+	  	}
+	  })
+	  function sortNumber(a,b){
+	  	return b - a;
+	  }
+	  var numArr1 = [].concat(numArr);
+	  console.log(numArr1)
+	  numArr1.sort(sortNumber);
+	  var maxNum = numArr1[0];
+	  var index = numArr.indexOf(maxNum);
+	  var maxStr = newArr[index];
+
+
+
+
+
+function getNum(arr, k){
+    // 数组排序-&gt;从大到小
+    arr.sort((a, b)=>{
+        return b-a;
+        console.log(arr);
+    });
+    let uniqarr = Array.from(new Set(arr));  // 数组去重
+    let tar = uniqarr[k-1];               // 找到目标元素
+    let index = arr.indexOf(tar);            // 寻找索引
+    let num;                                 // 利用元素之间的索引来得出该数字的数量
+    if(k == uniqarr.length){                 // 需要判断是否为数组的最后一个元素(即最小值)
+        num = arr.length - index;
+    }else{
+        let indexnext = arr.indexOf(uniqarr[k]);    
+        num = indexnext - index;
+    }
+    return ([tar, num]);
+}
+
+let arrw = [1,2,4,4,3,5];
+console.log(...getNum(arrw,2));
+
+
+
+		var url ='https://www.yonyoucloud.com?name=yonyou&location=beijing';
+     var obj = parseQueryString(url);
+     function parseQueryString(argu){
+		   var str = argu.split('?')[1];
+           var result = {};
+		   var temp = str.split('&');
+           for(var i=0; i<temp.length; i++){
+                var temp2 = temp[i].split('=');
+                result[temp2[0]]= temp2[1];
+          }
+          return result;
+      }
+
+//封装sort
+var arr = [6,2,4,31,5];
+function compare(v1, v2) {
+if (Number(v1) > Number(v2)){
+ return -1;
+ } 
+ else if (Number(v1) < Number(v2)){
+ return 1;
+ }else{
+ return 0;
+    }
+ }
+console.log(arr.sort(compare));
+
+
+// <div id='box'>
+// <span> 1 </span>
+// <span> 2 </span>
+// <span> 3 </span>
+// </div>
+// var box = document.querySelector('#box');
+// box.addEventListener('click',function(e){
+// 	var target = e.target;
+// 	if(target.nodeName.toLowerCase() === 'span'){
+// 		alert(target.innerText);
+// 	}
+// },false);
+
+
+//只匹配英文和数字并且是英文开头的正则
+//var reg = /^[A-Za-z][A-Za-z0-9]*$/
+
+
+
+var a = {
+  name: 'hanzichi',
+  age: 10,
+  location: 'china'
+};
+  
+var b = {
+  name: 'curry'
+};
+  
+var c = {
+  name: 'kobe',
+  sex: 'male'
+};
+// Object.prototype.getLength =  function() {
+//   var num = 0;
+//   for(var key in this){
+//   if(this.hasOwnProperty(key))
+// 		num++;
+// }
+//   return num;
+//   };
+//   var arr = [a, b, c];
+//   arr.sort(function(a, b) {
+//   return a.getLength() - b.getLength();
+//   });
+//   console.log(arr);
+
+Object.prototype.getLength = function(){
+	var num = 0;
+	for(var prop in this){
+        if(this.hasOwnProperty(prop)){
+			num++;
+		}
+	}
+	return num;
+}
+
+var arr = [a,b,c];
+arr.sort(function(a,b){
+	return a.getLength() - b.getLength();
+})
+console.log(arr);
+
+
+
+
+function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len; i++) {
+        for (var j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {        //相邻元素两两对比
+                var temp = arr[j+1];        //元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+var arr=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+console.log(bubbleSort(arr));
+
+var arr1=[3,44,38,5,47,15,36,26,27,2,46,4,19,50,48];
+arr1.sort(function(a,b){
+	return a -b;
+})
+console.log(arr1)
+
+
+//冒泡排序
+var arr2 = [5,2,4,6,5,8,7,54,2,123,565,1,2];
+function bubbleSort(arr){
+	var len = arr.length;
+	for(let i = 0; i<len - 1;i++){
+		for(let j = i+1;j<len;j++){
+			if(arr[i]>arr[j]){
+				let tem = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tem;
+			}
+		}
+	}
+	return arr;
+}
+console.log(bubbleSort(arr2));
+// module.exports = bubbleSort;
+
+
+
+// let o = {0:'a',1:'b',2:'c',length:3};
+// let objC = Array.from(o)            
+// console.log(...objC)
+// let mss = [...arrS];
+
+// var arr = [];
+// for(let item of Array.from(o)){
+//  arr.push(item);
+// }
+// console.log(arr);
+
+ 
+// 类数组对象以及数组
+
+// let obj = {
+//     0: 'a',
+//     1: 'b',
+//     2: 'c',
+//     length: 3
+// }
+// let objC = Array.from(obj)            
+// console.log([...objC]);
+let collection = {
+	items:[],
+	*[Symbol.iterator](){
+		for(let item of this.items){
+			yield item;
+		}
+	}
+}
+collection.items.push(1);
+collection.items.push(2);
+collection.items.push(3);
+for(let x of collection){
+	console.log(x);
+}
+
+
+//交换两个整数，不得借助临时变量
+//a = 2,b =3  => a =3 , b= 2;
+function swap(a,b){
+	b = b - a;  //b = 3-2
+	a = a + b;  // a = 2 + 1
+	b = a - b;  // b = 3 - 1
+	return [a,b];
+}
+
+var arr = swap(3,5);
+console.log(arr);
+
+
+//表单中填写手机号码时只允许输入135 ~ 139号段和158 159号段的手机号. 请编写一段正则表达式,判断用户输入的手机号是否正确
+
+// function isPhoneNum(str){
+// 	return /^1([3[5-9]\d{8}|5[89]\d{8}])\d{1}$/;
+// }
+
+//          function a(m, n) {
+//         var b = function (l) {
+//             return l <= m ? l * b(l + 1) : 1;
+//         }
+
+//         return b(m - n + 1);
+//     }
+
+//     console.log(a(4, 2));
+
+
+
+
+var str = 'xyzzyxyz';
+function maxString(str){
+	var arr = str.split("");
+	var obj = {};
+	var obj2 = {};
+	var max = 1;
+	for( let i = 0; i<arr.length; i++){
+		var item = arr[i];
+		obj[item] = (obj[item]+1) || 1;
+	}
+	for(var key in obj){
+		if(obj[key]>max){
+			max = obj[key];
+		}
+	}
+	for(var key in obj){
+		if(obj[key] === max){
+			obj2[key] = max;
+		}
+	}
+	return obj2;
+}
+console.log(maxString(str));
+
+
+   var m= 1, j = k = 0; 
+    function add(n) { 
+        return n = n+1; 
+　 } 
+    y = add(m); 
+    function add(n) { 
+        return n = n + 3; 
+    } 
+z = add(m); 
+    console.log(y,z)
+
+
+
+//字符串去重
+var arr = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+Array.prototype.uniq = function () {
+ var arr = [];
+    var onOff = true;
+    for(var i = 0;i<this.length;i++){
+        if(arr.indexOf(this[i]) == -1){
+            if(this[i]!=this[i] && typeof this[i] === 'number'){
+                if(onOff){
+                    arr.push(this[i]);
+                    onOff = false;
+                }
+            }else{
+                arr.push(this[i])
+            }
+        }
+    }
+    return arr
+}
+var arr1 = [123, "meili", "123", "mogu", 123];
+
+
+    console.log(typeof undefined == typeof NULL);//true
+    console.log(typeof function () {} == typeof class {});//true
+
+
+       var tmp = {};
+    var A = function() {};
+    A.prototype = tmp;
+
+    var a = new A();
+    A.prototype = {};
+
+    var b = Object.create(tmp);
+    b.constructor = A.constructor;
+
+    console.log(a instanceof A);//false
+    console.log(b instanceof A);//false
+
+
+
+        var a = {},
+        b = { key: 'b' },
+        c = { key: 'c' };
+
+    a[b] = 123;
+    a[c] = 456;    var a = {},
+        b = { key: 'b' },
+        c = { key: 'c' };
+
+    a[b] = 123;
+    a[c] = 456;
+console.log(a[b]);
+console.log(a[c]);
+console.log(a[a]);
+
+var x = new Boolean(false);
+if (x) {
+  alert('hi');
+}
+var y = Boolean(0);
+if (y) {
+  alert('hello'); 
+}
+
+
+var list = [1,3,5,7,8,9,10,4];
+var max = Math.max.apply(this,list);
+console.log(max);
+var min = Math.min.apply(this,list);
+console.log(min);
+
+var arrL = new Array('1','2','3','4');
+var arrS = new Array('5','6','7','8');
+console.log(Array.prototype.push.apply(arrL,arrS));
+
+var sss = [1,2,3,4,5,6];
+function getMaxProfit(arr){
+	var minPrice = arr[0];
+	var maxProfit = 0;
+	for(var i = 0;i<arr.length;i++){
+		var currentPrice = arr[i];
+		minPrice = Math.min(minPrice,currentPrice);
+		var potentialProfit = currentPrice - minPrice;
+		maxProfit = Math.max(maxProfit,potentialProfit);
+	}
+	return maxProfit;
+}
+console.log(getMaxProfit(sss));
+
+
+var arr = 'sdddssbbgfcvvvvv';
+    function outputMaxSubStrLen(arr){
+        var result = 0; //定义最终要返回的结果的初始值
+        var str = ''; //用于存放无重复子串
+        var len = arr.length;
+        for(var i = 0;i < len; i++){
+            var char = arr.charAt(i);//charAt()获取是字符串索引对应的具体字符
+            var index = str.indexOf(char);//查找的是某个字符第一出现并返回这个索引值，如果没有返回-1
+            if(index == -1){
+                str+=char; //将遍历没有重复的字符拼接在str后面
+                result = result < str.length ? str.length : result;
+            }else{
+                str = str.substr(index + 1) + char; //遇到重复的字符，那么将已经在str里的字符删除，并将新的重复的字符添加到末尾
+            }
+        }
+        return result;
+    }
+    console.log(outputMaxSubStrLen(arr));
+    // var reg = /(\w)\1*/g;
+    // console.log(arr.replace(reg,'$1'));
+
+ //新建一个数组来存放重复的元素，利用indexOf(元素)获取数组元素下标，如果返回非-1的数，说明存在这个元素，添加到新的数组中
+ //只需要用自身去和后面的元素对比，前面的数已经在前面循环的时候对比了
+ var list = [1,1,2,2,3,3,3];
+ function duplicates(arr){
+     let oArr = [];
+     for(var i = 0; i<arr.length; i++){
+         let result = arr.slice(i+1,arr.length);//获取自身值后面的所有元素
+         console.log(result);
+         //判断result数组里的所有元素是否和arr[i]重复，如果没有在判断当前元素是否加入了oArr中，如果没有返回-1；
+         if(result.indexOf(arr[i]) != -1 && oArr.indexOf(arr[i]) == -1){
+             oArr.push(arr[i]);
+         }
+     }
+     return oArr;
+ }
+ console.log(duplicates(list));
+
+
+
+
+   </script>
+</body>
+</html>
